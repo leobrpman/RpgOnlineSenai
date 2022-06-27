@@ -69,3 +69,18 @@ ON Ch.ClassId = Cl.ClassId
 SELECT U.Email 'e-mail', Ch.CharName 'Nome', Cl.ClassName 'Classe', Cl.ClassDescr 'Descrição' FROM Characters Ch 
 JOIN Class Cl ON Ch.ClassId = Cl.ClassId
 JOIN Users U ON U.UserId = Ch.CharId
+
+--PERMISSÕES
+
+CREATE LOGIN adminrpg
+WITH PASSWORD = 'adminrpg'
+
+CREATE USER adminrpg FOR LOGIN adminrpg
+
+GRANT SELECT TO adminrpg
+
+SELECT * FROM Users
+
+UPDATE Users
+SET Email = 'leonardo@email.com.br'
+WHERE UserId = 1
